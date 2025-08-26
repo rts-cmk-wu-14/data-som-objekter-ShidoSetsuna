@@ -125,7 +125,53 @@ function renderHero() {
   heroSection.appendChild(cardDiv);
 }
 
+function renderServices() {
+  const section = document.querySelector(".services");
+
+  // container
+  const wrap = document.createElement("div");
+  wrap.className = "services__wrap";
+
+  // grid
+  const grid = document.createElement("div");
+  grid.className = "services__grid";
+
+  // build each card from data.js -> services[]
+  services.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "service";
+
+    const img = document.createElement("img");
+    img.className = "service__img";
+    img.src = item.illustration;
+    img.alt = ""; // decorative illustration
+
+    const h3 = document.createElement("h3");
+    h3.className = "service__title";
+    h3.textContent = item.headline;
+
+    const p = document.createElement("p");
+    p.className = "service__text";
+    p.textContent = item.text;
+
+    const a = document.createElement("a");
+    a.className = "service__link";
+    a.href = "#";
+    a.textContent = item.linktext;
+
+    card.appendChild(img);
+    card.appendChild(h3);
+    card.appendChild(p);
+    card.appendChild(a);
+    grid.appendChild(card);
+  });
+
+  wrap.appendChild(grid);
+  section.appendChild(wrap);
+}
+
 // Run the function
 renderHero();
 renderMenuButton();
 renderLogo();
+renderServices();

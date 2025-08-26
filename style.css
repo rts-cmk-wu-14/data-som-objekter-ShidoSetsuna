@@ -169,6 +169,97 @@ h6 {
   display: block;
 }
 
+/* SERVICES */
+.services {
+  /* give space above to clear the hero card overlap */
+  margin-top: clamp(40px, 8vw, 120px);
+}
+
+.services__wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.service {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.service__img {
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+.service__title {
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.service__text {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.service__link {
+  margin-top: 6px;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.service__link:hover {
+  text-decoration: underline;
+}
+
+/* You already have a media rule at 560px; expand it and reserve more space */
+@media (max-width: 1200px) {
+  .hero {
+    /* no overlap space needed */
+    padding-bottom: 24px;
+
+    /* stack the two items: image (row 1), card (row 2) */
+    grid-template-rows: auto auto;
+  }
+
+  .hero__media {
+    grid-column: 1 / -1; /* full bleed image */
+    grid-row: 1;
+  }
+
+  .hero__card {
+    grid-column: 2; /* keep it on the centered content column */
+    grid-row: 2; /* BELOW the image */
+    transform: none; /* remove overlap */
+    align-self: start;
+    margin-top: 16px;
+    max-width: 100%;
+    box-shadow: none; /* no shadow on small screens */
+  }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .services__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Small tweak so next section doesn't hide under the overlap on very small screens */
 @media (max-width: 560px) {
   .hero__card {
