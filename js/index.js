@@ -326,6 +326,94 @@ function renderAdvantages() {
   section.appendChild(wrap);
 }
 
+function renderFooter() {
+  const root = document.querySelector(".footer");
+
+  const wrap = document.createElement("div");
+  wrap.className = "footer__wrap";
+
+  // Top row: brand + 3 link columns
+  const top = document.createElement("div");
+  top.className = "footer__top";
+
+  // Brand block
+  const brand = document.createElement("div");
+  brand.className = "footer__brand";
+
+  const brandTitle = document.createElement("h3");
+  brandTitle.className = "footer__brandTitle";
+  brandTitle.textContent = footer.brand.title;
+
+  const brandTag = document.createElement("p");
+  brandTag.className = "footer__brandTag";
+  // line breaks per Figma
+  brandTag.innerHTML = footer.brand.tagline.join("<br>");
+
+  brand.appendChild(brandTitle);
+  brand.appendChild(brandTag);
+
+  top.appendChild(brand);
+
+  // Link columns
+  footer.columns.forEach((col) => {
+    const c = document.createElement("div");
+    c.className = "footer__col";
+
+    const h = document.createElement("h4");
+    h.className = "footer__colTitle";
+    h.textContent = col.title;
+
+    const ul = document.createElement("ul");
+    ul.className = "footer__list";
+
+    col.links.forEach((link) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = link.href;
+      a.className = "footer__link";
+      a.textContent = link.label;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    c.appendChild(h);
+    c.appendChild(ul);
+    top.appendChild(c);
+  });
+
+  // Divider
+  const hr = document.createElement("div");
+  hr.className = "footer__divider";
+
+  // Bottom row
+  const bottom = document.createElement("div");
+  bottom.className = "footer__bottom";
+
+  const copy = document.createElement("span");
+  copy.className = "footer__copy";
+  copy.textContent = footer.bottom.copyright;
+
+  const nav = document.createElement("nav");
+  nav.className = "footer__nav";
+
+  footer.bottom.links.forEach((l, idx) => {
+    const a = document.createElement("a");
+    a.href = l.href;
+    a.className = "footer__bottomLink";
+    a.textContent = l.label;
+    nav.appendChild(a);
+  });
+
+  bottom.appendChild(copy);
+  bottom.appendChild(nav);
+
+  // Assemble
+  wrap.appendChild(top);
+  wrap.appendChild(hr);
+  wrap.appendChild(bottom);
+  root.appendChild(wrap);
+}
+
 // Run the function
 renderHero();
 renderMenuButton();
@@ -334,3 +422,4 @@ renderServices();
 renderFacilities();
 renderSites();
 renderAdvantages();
+renderFooter();

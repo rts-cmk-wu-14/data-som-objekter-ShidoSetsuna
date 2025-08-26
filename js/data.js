@@ -102,33 +102,48 @@ let advantages = [
 
 // Opret dit dataobjekt til footerens indhold herunder
 
-// Footer data
+// Footer data (Figma-style)
 let footer = {
+  brand: {
+    title: "Easy Camper",
+    tagline: ["When", "Passion", "Meets", "Comfort."],
+  },
   columns: [
     {
-      title: "EasyCamper",
+      title: "Discover the Network",
       links: [
-        { label: "About", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "Where to shop", href: "#" },
+        { label: "Tour Guided", href: "#" },
+        { label: "Our Tours", href: "#" },
+        { label: "About Us", href: "#" },
       ],
     },
     {
-      title: "Resources",
+      title: "Become a Manager",
       links: [
-        { label: "Docs", href: "#" },
-        { label: "Support", href: "#" },
-        { label: "Blog", href: "#" },
+        { label: "Join your Pairing", href: "#" },
+        { label: "Offer your Service", href: "#" },
+        { label: "Are you a guide?", href: "#" },
       ],
     },
     {
-      title: "Legal",
+      title: "Assistance",
       links: [
-        { label: "Privacy", href: "#" },
-        { label: "Terms", href: "#" },
+        { label: "Support Center", href: "#" },
+        { label: "FAQs", href: "#" },
+        { label: "Cancellation Options", href: "#" },
+        { label: "Reliability and Security", href: "#" },
       ],
     },
   ],
-  copyright:
-    "© " + new Date().getFullYear() + " EasyCamper. All rights reserved.",
+  bottom: {
+    copyright: "EasyCamper. All rights reserved.",
+    links: [
+      { label: "About", href: "#" },
+      { label: "Site Map", href: "#" },
+      { label: "Terms", href: "#" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Teams", href: "#" },
+    ],
+  },
 };
