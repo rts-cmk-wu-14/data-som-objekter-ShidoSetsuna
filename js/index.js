@@ -170,8 +170,59 @@ function renderServices() {
   section.appendChild(wrap);
 }
 
+function renderFacilities() {
+  const section = document.querySelector(".facilities");
+
+  // wrapper
+  const wrap = document.createElement("div");
+  wrap.className = "facilities__wrap";
+
+  // headline
+  const h2 = document.createElement("h2");
+  h2.className = "facilities__title";
+  h2.textContent = facilities.headline;
+
+  // grid
+  const grid = document.createElement("div");
+  grid.className = "facilities__grid";
+
+  facilities.options.forEach((opt) => {
+    const card = document.createElement("article");
+    card.className = "facility";
+
+    const icon = document.createElement("img");
+    icon.className = "facility__icon";
+    icon.src = opt.icon;
+    icon.alt = ""; // decorative
+
+    const title = document.createElement("h3");
+    title.className = "facility__name";
+    title.textContent = opt.headline;
+
+    const text = document.createElement("p");
+    text.className = "facility__text";
+    text.textContent = opt.text;
+
+    const link = document.createElement("a");
+    link.className = "facility__link";
+    link.href = "#";
+    link.textContent = "Show me more";
+
+    card.appendChild(icon);
+    card.appendChild(title);
+    card.appendChild(text);
+    card.appendChild(link);
+    grid.appendChild(card);
+  });
+
+  wrap.appendChild(h2);
+  wrap.appendChild(grid);
+  section.appendChild(wrap);
+}
+
 // Run the function
 renderHero();
 renderMenuButton();
 renderLogo();
 renderServices();
+renderFacilities();

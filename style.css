@@ -222,7 +222,79 @@ h6 {
   text-decoration: underline;
 }
 
-/* You already have a media rule at 560px; expand it and reserve more space */
+/* FACILITIES */
+.facilities {
+  margin-top: clamp(40px, 8vw, 80px);
+}
+
+.facilities__wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.facilities__title {
+  font-size: 36px;
+  line-height: 1.25;
+  margin-bottom: 84px;
+}
+
+.facilities__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.facility {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.facility__icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.facility__name {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: bold;
+  margin-bottom: 12px;
+  min-height: calc(1.25em * 2); /* adjust if your titles are 1 or 3 lines */
+}
+
+.facility__text {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.facility__link {
+  margin-top: auto;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.facility__link:hover {
+  text-decoration: underline;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .facilities__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .facilities__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 1200px) {
   .hero {
     /* no overlap space needed */
