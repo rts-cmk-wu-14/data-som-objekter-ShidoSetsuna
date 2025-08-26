@@ -220,9 +220,72 @@ function renderFacilities() {
   section.appendChild(wrap);
 }
 
+function renderSites() {
+  const section = document.querySelector(".sites");
+
+  const wrap = document.createElement("div");
+  wrap.className = "sites__wrap";
+
+  // Left intro column
+  const intro = document.createElement("div");
+  intro.className = "sites__intro";
+
+  const h2 = document.createElement("h2");
+  h2.className = "sites__title";
+  h2.textContent = sites.headline;
+
+  const p = document.createElement("p");
+  p.className = "sites__text";
+  p.textContent = sites.text;
+
+  const cta = createButton("Start", sites.btnicon);
+
+  intro.appendChild(h2);
+  intro.appendChild(p);
+  intro.appendChild(cta);
+
+  // Right cards column
+  const grid = document.createElement("div");
+  grid.className = "sites__grid";
+
+  sites.places.forEach((place) => {
+    const card = document.createElement("article");
+    card.className = "site";
+
+    const img = document.createElement("img");
+    img.className = "site__img";
+    img.src = place.img;
+    img.alt = `${place.name}, ${place.city}`;
+
+    const name = document.createElement("h3");
+    name.className = "site__name";
+    name.textContent = place.name;
+
+    const city = document.createElement("p");
+    city.className = "site__city";
+    city.textContent = place.city;
+
+    const link = document.createElement("a");
+    link.className = "site__link";
+    link.href = "#";
+    link.textContent = "View the Site";
+
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(city);
+    card.appendChild(link);
+    grid.appendChild(card);
+  });
+
+  wrap.appendChild(intro);
+  wrap.appendChild(grid);
+  section.appendChild(wrap);
+}
+
 // Run the function
 renderHero();
 renderMenuButton();
 renderLogo();
 renderServices();
 renderFacilities();
+renderSites();
