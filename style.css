@@ -1,5 +1,177 @@
+/* Base (minimal) */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+:root {
+  --max: 1100px;
+  --space: 24px;
+  --brand: #ef7d67;
+  --text: #1c1c1c;
+  --muted: #6b6b6b;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.15);
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "montserrat", sans-serif;
+}
+
+body {
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: merriweather, serif;
+}
+
+/* Layout container rows (from index.html) are already present. */
+
+/* Menu-button */
+
+/* Menu-button */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px; /* bring it to the edge like the mock */
+  background: #fff;
+  border: none;
+  border-radius: 9999px; /* pill */
+  box-shadow: var(--shadow);
+  padding: 10px 14px; /* intrinsic width instead of fixed */
+  display: inline-flex;
+  align-items: center;
+  gap: 2px; /* space between arrow and icon */
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-btn__chev {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.menu-btn__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.menu-btn:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  /* 3 columns: full bleed side gutters + centered content column */
+  grid-template-columns: minmax(16px, 1fr) minmax(0, var(--max)) minmax(
+      16px,
+      1fr
+    );
+  /* We’ll overlap the card onto the image and keep space for it below */
+  padding-bottom: clamp(48px, 10vw, 120px);
+}
+
+.hero__media {
+  grid-column: 1 / -1; /* image spans full width */
+  grid-row: 1;
+  height: clamp(340px, 45vw, 520px);
+  overflow: hidden;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__card {
+  grid-column: 2; /* centered with the content column */
+  grid-row: 1; /* same grid cell as the image (overlap) */
+  justify-self: start; /* align left within the content column */
+  align-self: end; /* stick to bottom edge of the image */
+  transform: translateY(40%); /* push it down to overlap into the white area */
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+  padding: 80px 128px 70px 50px;
+  max-width: min(700px, 90%);
+}
+
+.hero__headline {
+  font-size: clamp(26px, 3.6vw, 40px);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero__headline span {
+  color: var(--brand);
+}
+
+.hero__headline em,
+.hero__headline strong,
+.hero__headline a {
+  color: var(--brand);
+}
+
+.hero__copy {
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.btn {
+  border: 0;
+  padding: 15px 48px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* now ensures space after the icon */
+}
+
+.btn__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.hero__logo {
+  grid-column: 2; /* center column, same as card */
+  grid-row: 1;
+  justify-self: start;
+  align-self: start;
+  margin-top: 20px; /* space from top */
+  z-index: 2; /* sit above the hero image */
+}
+
+.hero__logoImg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Small tweak so next section doesn't hide under the overlap on very small screens */
+@media (max-width: 560px) {
+  .hero__card {
+    transform: translateY(32%);
+  }
 }
