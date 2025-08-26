@@ -282,6 +282,50 @@ function renderSites() {
   section.appendChild(wrap);
 }
 
+function renderAdvantages() {
+  const section = document.querySelector(".advantages");
+
+  const wrap = document.createElement("div");
+  wrap.className = "advantages__wrap";
+
+  // --- NEW: section heading ---
+  const h2 = document.createElement("h2");
+  h2.className = "advantages__title";
+  h2.textContent =
+    typeof advantagesTitle !== "undefined" ? advantagesTitle : "Our Advantages";
+  wrap.appendChild(h2);
+  // ----------------------------
+
+  const grid = document.createElement("div");
+  grid.className = "advantages__grid";
+
+  advantages.forEach((opt) => {
+    const card = document.createElement("article");
+    card.className = "advantage";
+
+    const icon = document.createElement("img");
+    icon.className = "advantage__icon";
+    icon.src = opt.icon;
+    icon.alt = "";
+
+    const title = document.createElement("h3");
+    title.className = "advantage__name";
+    title.textContent = opt.headline;
+
+    const text = document.createElement("p");
+    text.className = "advantage__text";
+    text.textContent = opt.text;
+
+    card.appendChild(icon);
+    card.appendChild(title);
+    card.appendChild(text);
+    grid.appendChild(card);
+  });
+
+  wrap.appendChild(grid);
+  section.appendChild(wrap);
+}
+
 // Run the function
 renderHero();
 renderMenuButton();
@@ -289,3 +333,4 @@ renderLogo();
 renderServices();
 renderFacilities();
 renderSites();
+renderAdvantages();
