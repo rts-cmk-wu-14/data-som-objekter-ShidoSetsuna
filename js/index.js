@@ -26,7 +26,7 @@ function renderMenuButton() {
   menuBtn.className = "menu-btn";
   menuBtn.type = "button";
 
-  // left chevron (inline SVG so no extra asset needed)
+  // left chevron
   const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   chevron.setAttribute("viewBox", "0 0 24 24");
   chevron.setAttribute("aria-hidden", "true");
@@ -42,7 +42,7 @@ function renderMenuButton() {
 
   // right user icon
   const icon = document.createElement("img");
-  icon.src = "./img/CL_Type-User.png"; // keep your current asset
+  icon.src = "./img/CL_Type-User.png";
   icon.alt = "Menu";
   icon.className = "menu-btn__icon";
 
@@ -58,7 +58,7 @@ function renderLogo() {
   logoDiv.className = "hero__logo";
 
   const logoImg = document.createElement("img");
-  logoImg.src = "./img/cube.png"; // use your asset
+  logoImg.src = "./img/cube.png";
   logoImg.alt = "Logo";
   logoImg.className = "hero__logoImg";
 
@@ -93,7 +93,7 @@ function renderHero() {
 
   const text = hero.headline;
 
-  // Choose index positions (you’d measure them once)
+  // Choose index positions
   const start = 19; // where the highlight begins
   const end = 34; // where the highlight ends
 
@@ -120,7 +120,7 @@ function renderHero() {
   cardDiv.appendChild(copy);
   cardDiv.appendChild(heroButton);
 
-  // Finally, add the media and card into the hero section
+  // Add the media and card into the hero section
   heroSection.appendChild(mediaDiv);
   heroSection.appendChild(cardDiv);
 }
@@ -414,7 +414,7 @@ function renderFooter() {
   root.appendChild(wrap);
 }
 
-// Run the function
+// Run the functions
 renderHero();
 renderMenuButton();
 renderLogo();

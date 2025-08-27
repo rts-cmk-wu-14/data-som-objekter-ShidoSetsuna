@@ -8,7 +8,7 @@
 :root {
   --max: 1100px;
   --space: 24px;
-  --brand: #ef7d67;
+  --brand: #f78065;
   --text: #1c1c1c;
   --muted: #6b6b6b;
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.15);
@@ -38,12 +38,10 @@ h6 {
 /* Layout container rows (from index.html) are already present. */
 
 /* Menu-button */
-
-/* Menu-button */
 .menu-btn {
   position: fixed;
   top: 20px;
-  right: 20px; /* bring it to the edge like the mock */
+  right: 130px;
   background: #fff;
   border: none;
   border-radius: 9999px; /* pill */
@@ -79,8 +77,8 @@ h6 {
       16px,
       1fr
     );
-  /* We’ll overlap the card onto the image and keep space for it below */
-  padding-bottom: clamp(48px, 10vw, 120px);
+  /* Overlap the card onto the image and keep space for it below */
+  padding-bottom: clamp(60px, 12vw, 170px);
 }
 
 .hero__media {
@@ -98,11 +96,11 @@ h6 {
 }
 
 .hero__card {
-  grid-column: 2; /* centered with the content column */
-  grid-row: 1; /* same grid cell as the image (overlap) */
-  justify-self: start; /* align left within the content column */
-  align-self: end; /* stick to bottom edge of the image */
-  transform: translateY(40%); /* push it down to overlap into the white area */
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  align-self: end;
+  transform: translateY(51%) translateX(-9%); /* overlap the image */
   background: #fff;
   border-radius: 2px;
   box-shadow: var(--shadow);
@@ -139,7 +137,8 @@ h6 {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* now ensures space after the icon */
+  gap: 8px;
+  justify-content: center;
 }
 
 .btn__icon {
@@ -152,6 +151,8 @@ h6 {
   color: #fff;
   font-size: 17px;
   font-weight: 600;
+  width: 240px;
+  height: 57px;
 }
 
 .hero__logo {
@@ -172,7 +173,7 @@ h6 {
 /* SERVICES */
 .services {
   /* give space above to clear the hero card overlap */
-  margin-top: clamp(40px, 8vw, 120px);
+  margin-top: clamp(70px, 16vw, 180px);
 }
 
 .services__wrap {
@@ -196,7 +197,7 @@ h6 {
 .service__img {
   height: 120px;
   object-fit: contain;
-  margin-bottom: 6px;
+  margin-bottom: 64px;
   user-select: none;
 }
 
@@ -223,8 +224,9 @@ h6 {
 }
 
 /* FACILITIES */
+
 .facilities {
-  margin-top: clamp(40px, 8vw, 80px);
+  margin-top: clamp(84px, 18vw, 242px);
 }
 
 .facilities__wrap {
@@ -255,7 +257,7 @@ h6 {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  margin-bottom: 12px;
+  margin-bottom: 37px;
 }
 
 .facility__name {
@@ -263,7 +265,7 @@ h6 {
   line-height: 1.25;
   font-weight: bold;
   margin-bottom: 12px;
-  min-height: calc(1.25em * 2); /* adjust if your titles are 1 or 3 lines */
+  min-height: calc(1.1em * 2); /* adjust if your titles are 1 or 3 lines */
 }
 
 .facility__text {
@@ -284,8 +286,9 @@ h6 {
 }
 
 /* SITES */
+
 .sites {
-  margin-top: clamp(40px, 8vw, 90px);
+  margin-top: clamp(84px, 18vw, 242px);
 }
 
 .sites__wrap {
@@ -294,7 +297,7 @@ h6 {
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 2fr; /* left intro, right cards */
-  gap: 28px;
+  gap: 131px;
   align-items: start;
 }
 
@@ -303,9 +306,10 @@ h6 {
   line-height: 1.25;
   margin-bottom: 10px;
 }
+
 .sites__text {
   color: var(--muted);
-  margin-bottom: 16px;
+  margin-bottom: 42px;
   max-width: 34ch;
 }
 
@@ -328,16 +332,16 @@ h6 {
 .site__name {
   font-size: 24px;
   font-weight: bold;
+  margin-top: 8px;
 }
 
 .site__city {
   color: var(--muted);
   font-size: 15px;
-  margin-top: -2px;
+  margin: -8px 0 -4px 0;
 }
 .site__link {
   color: var(--brand);
-  font-weight: bold;
   font-size: 18px;
   text-decoration: none;
 }
@@ -348,7 +352,7 @@ h6 {
 /* ADVANTAGES */
 
 .advantages {
-  margin-top: clamp(40px, 8vw, 80px);
+  margin-top: clamp(84px, 18vw, 242px);
 }
 
 .advantages__wrap {
@@ -396,9 +400,10 @@ h6 {
 }
 
 /* FOOTER */
+
 .footer {
   background: #f6f6f6;
-  margin-top: clamp(40px, 8vw, 100px);
+  margin-top: clamp(84px, 18vw, 242px);
   color: #222;
 }
 .footer__wrap {
@@ -426,6 +431,13 @@ h6 {
   font-weight: bold;
 }
 
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  flex-wrap: wrap;
+}
+
 .footer__colTitle {
   font-family: merriweather, serif;
   font-size: 18px;
@@ -449,7 +461,7 @@ h6 {
 .footer__divider {
   height: 1px;
   background: #d9d9d9;
-  margin: 28px 0 16px;
+  margin: 60px 0 16px;
 }
 
 .footer__bottom {
@@ -465,7 +477,7 @@ h6 {
 }
 .footer__nav {
   display: flex;
-  gap: 22px;
+  gap: 31px;
   flex-wrap: wrap;
 }
 .footer__bottomLink {
@@ -486,6 +498,13 @@ h6 {
   }
   .footer__brandTag {
     font-size: 34px;
+  }
+  .footer__col {
+    flex-wrap: nowrap;
+  }
+
+  .menu-btn {
+    right: 20px; /* bring it to the edge */
   }
 }
 @media (max-width: 560px) {
