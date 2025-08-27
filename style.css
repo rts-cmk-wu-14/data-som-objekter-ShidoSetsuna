@@ -52,6 +52,7 @@ h6 {
   gap: 2px; /* space between arrow and icon */
   cursor: pointer;
   z-index: 1000;
+  transition: box-shadow 0.3s ease;
 }
 
 .menu-btn__chev {
@@ -101,6 +102,7 @@ h6 {
   justify-self: start;
   align-self: end;
   transform: translateY(51%) translateX(-9%); /* overlap the image */
+  margin-left: 24px;
   background: #fff;
   border-radius: 2px;
   box-shadow: var(--shadow);
@@ -189,8 +191,8 @@ h6 {
 }
 
 .service {
-  display: grid;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
@@ -238,7 +240,7 @@ h6 {
 .facilities__title {
   font-size: 36px;
   line-height: 1.25;
-  margin-bottom: 84px;
+  margin-bottom: 105px;
 }
 
 .facilities__grid {
@@ -328,6 +330,7 @@ h6 {
   height: 351px;
   object-fit: cover;
   border-radius: 2px;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
 }
 .site__name {
   font-size: 24px;
@@ -347,6 +350,13 @@ h6 {
 }
 .site__link:hover {
   text-decoration: underline;
+}
+
+.site__img:hover {
+  filter: brightness(1.05);
+  transform: scale(1.02) translateX(-11px) translateY(-11px);
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
 /* ADVANTAGES */
@@ -376,14 +386,14 @@ h6 {
 .advantages__title {
   font-size: 36px;
   line-height: 1.25;
-  margin-bottom: 42px;
+  margin-bottom: 105px;
 }
 
 .advantage__icon {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  margin-bottom: 12px;
+  margin-bottom: 42px;
 }
 
 .advantage__name {
@@ -405,6 +415,7 @@ h6 {
   background: #f6f6f6;
   margin-top: clamp(84px, 18vw, 242px);
   color: #222;
+  padding-top: 42px;
 }
 .footer__wrap {
   max-width: var(--max);
@@ -461,7 +472,7 @@ h6 {
 .footer__divider {
   height: 1px;
   background: #d9d9d9;
-  margin: 60px 0 16px;
+  margin: 84px 0 16px;
 }
 
 .footer__bottom {
@@ -574,6 +585,14 @@ h6 {
     margin-top: 16px;
     max-width: 100%;
     box-shadow: none; /* no shadow on small screens */
+  }
+
+  .hero__headline {
+    width: 48%;
+  }
+
+  .hero__copy {
+    width: 64%;
   }
 }
 
